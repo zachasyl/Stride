@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "152313028392",
+    "project_id": "strideapp-c8302",
+    "storage_bucket": "strideapp-c8302.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:152313028392:android:27a7e8c8acded9fad07a1d",
+        "android_client_info": {
+          "package_name": "neu.edu.madcourse.strideapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "152313028392-k8p9pdkp4krv82mek5k9414ess95f4s1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBl7xqcP6ASkbMLO4nqsqoH9OQru3XM_o4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "152313028392-k8p9pdkp4krv82mek5k9414ess95f4s1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
