@@ -21,6 +21,7 @@
     <activity android:name=".Sprint"></activity>
     <activity android:name=".RecyclerAssignment.Recycler"></activity>
         <activity android:name=".userlist"></activity>
+        <activity android:name=".TrophyCase"></activity>
 
     </application>
 </manifest>
