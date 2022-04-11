@@ -2,12 +2,10 @@ package neu.edu.madcourse.strideapp;
 
 import android.os.Bundle;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,7 +20,7 @@ public class TrophyCase extends AppCompatActivity {
     boolean unlocked;
     boolean toasted;
     DatabaseReference database;
-    ArrayList<User> list;
+    ArrayList<Exercise> list;
     private ImageView mImageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

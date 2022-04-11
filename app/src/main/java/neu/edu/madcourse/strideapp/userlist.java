@@ -2,7 +2,6 @@ package neu.edu.madcourse.strideapp;
 
 import android.os.Bundle;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,7 +20,7 @@ public class userlist extends AppCompatActivity {
     RecyclerView recylcerView;
     DatabaseReference database;
     MyAdapter myAdapter;
-    ArrayList<User> list;
+    ArrayList<Exercise> list;
     int totalCalories;
 
     @Override
@@ -45,11 +44,11 @@ public class userlist extends AppCompatActivity {
 
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    User user = dataSnapshot.getValue(User.class);
-                    list.add(user);
+                    Exercise exercise = dataSnapshot.getValue(Exercise.class);
+                    list.add(exercise);
 
-                    if (user.getCalories() != null) {
-                        int x = Integer.parseInt(user.getCalories());
+                    if (exercise.getCalories() != null) {
+                        int x = Integer.parseInt(exercise.getCalories());
                         totalCalories += x;
                         String TotalCalories = "TotalCalories";
                         FirebaseDatabase.getInstance().getReference().child(TotalCalories).setValue(totalCalories);

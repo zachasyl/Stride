@@ -1,6 +1,6 @@
 package neu.edu.madcourse.strideapp;
 
-public class User {
+public class Exercise {
 
     String id, date, distance, time, speed, calories;
 
