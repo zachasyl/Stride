@@ -7,10 +7,16 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        boolean achievement = false;
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -39,5 +45,10 @@ public class MainActivity extends AppCompatActivity {
 //    }
 
 
+    public void onClickMyTrophies(View v) {
+        // go to the activity for displaying statistics
+        Intent MyTrophies = new Intent(MainActivity.this, neu.edu.madcourse.strideapp.TrophyCase.class);
+        startActivity(MyTrophies);
+    }
 
 }
