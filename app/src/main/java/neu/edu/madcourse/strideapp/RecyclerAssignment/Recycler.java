@@ -1,4 +1,4 @@
-package neu.edu.madcourse.strideapp;
+package neu.edu.madcourse.strideapp.RecyclerAssignment;
 
 
 import android.content.Intent;
@@ -19,11 +19,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
-import neu.edu.madcourse.strideapp.RecyclerAssignment.Adapter;
-import neu.edu.madcourse.strideapp.RecyclerAssignment.ItemCard;
-import neu.edu.madcourse.strideapp.RecyclerAssignment.ItemClickListener;
-import neu.edu.madcourse.strideapp.RecyclerAssignment.LinkDialog;
-import neu.edu.madcourse.strideapp.RecyclerAssignment.LinkDialogListener;
+import neu.edu.madcourse.strideapp.R;
 
 public class Recycler extends AppCompatActivity implements LinkDialogListener {
     private static final java.util.UUID UUID = null;

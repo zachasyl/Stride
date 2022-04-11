@@ -19,7 +19,7 @@
         </intent-filter>
     </activity>
     <activity android:name=".Sprint"></activity>
-    <activity android:name=".Recycler"></activity>
+    <activity android:name=".RecyclerAssignment.Recycler"></activity>
         <activity android:name=".userlist"></activity>
 
     </application>
