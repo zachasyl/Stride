@@ -51,4 +51,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(MyTrophies);
     }
 
+    public void onClickRun(View v) {
+        // go to the activity for displaying statistics
+        Intent StartRun = new Intent(MainActivity.this, neu.edu.madcourse.strideapp.MapsActivity.class);
+        startActivity(StartRun);
+    }
+
 }
