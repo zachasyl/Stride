@@ -46,7 +46,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     // this line added
     LocationManager locationManager;
     private Polyline line;
-    private double distancePlease = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,9 +87,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             .width(4)
                             .color(Color.GREEN)
                             .geodesic(true);
+                    double distancePlease = 0;
                     for (int x = 0; x < routePoints.size(); x++) {
                         LatLng point = routePoints.get(x);
                         polylineOptions.add(point);
+                        // x must be > 0 so we start at distance between first 2 points
+                        if (x > 0){
+                            LatLng startLatLng = routePoints.get(x-1);
+                            LatLng endLatLng = routePoints.get(x);
+
+//
+                            TextView textView = (TextView) findViewById(R.id.distanceText);
+                            distancePlease = distancePlease + SphericalUtil.computeDistanceBetween(startLatLng, endLatLng);
+                            textView.setText(String.valueOf(distancePlease));
+                        }
 
                     }
                         line = mMap.addPolyline(polylineOptions);
