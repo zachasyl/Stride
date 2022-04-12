@@ -160,4 +160,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));*/
     }
+
+
+    public void onClickStartTimer(View v) {
+
+        Chronometer simpleChronometer = (Chronometer) findViewById(R.id.simpleChronometer); // initiate a chronometer
+        simpleChronometer.start(); // start a chronometer
+        simpleChronometer.setBase(SystemClock.elapsedRealtime());
+
+        long timePassed = simpleChronometer.getBase();
+    }
+
+
 }
