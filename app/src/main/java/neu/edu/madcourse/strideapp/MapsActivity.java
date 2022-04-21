@@ -1,6 +1,7 @@
 package neu.edu.madcourse.strideapp;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Address;
@@ -13,6 +14,7 @@ import android.os.SystemClock;
 import android.view.View;
 import android.widget.Chronometer;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
@@ -26,6 +28,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.maps.android.SphericalUtil;
 
 import java.io.IOException;
@@ -97,7 +100,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             LatLng endLatLng = routePoints.get(x);
 
 //
-                            TextView textView = (TextView) findViewById(R.id.distanceText);
+                            TextView textView = (TextView) findViewById(R.id.distanceTextt);
                             distancePlease = distancePlease + SphericalUtil.computeDistanceBetween(startLatLng, endLatLng);
                             textView.setText(String.valueOf(distancePlease));
                         }
@@ -180,6 +183,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         long timePassed = simpleChronometer.getBase();
     }
+    public void onStop(View v) {
+        TextView distance = (TextView) findViewById(R.id.distanceText);
+        Chronometer simpleChronometer = (Chronometer) findViewById(R.id.simpleChronometer);
 
+        Toast.makeText(getBaseContext(), "Your answer is correct!", Toast.LENGTH_SHORT).show();
+
+        String id = "9000";
+        String time = (String) simpleChronometer.getText();
+        String theDistance = (String) distance.getText();
+
+//           String theTime = time.getText().toString();
+
+
+        FirebaseDatabase.getInstance().getReference().child(String.valueOf("Zach")).child(id).child("time").setValue(time);
+        FirebaseDatabase.getInstance().getReference().child(String.valueOf("Zach")).child(id).child("distance").setValue(theDistance);
+
+        FirebaseDatabase.getInstance().getReference().child(String.valueOf("Zach")).child(id).child("speed").setValue("1");
+        FirebaseDatabase.getInstance().getReference().child(String.valueOf("Zach")).child(id).child("date").setValue("1");
+        FirebaseDatabase.getInstance().getReference().child(String.valueOf("Zach")).child(id).child("calories").setValue("1");
+
+        Intent Return = new Intent(MapsActivity.this, userlist.class);
+        startActivity(Return);
+    }
 
 }
