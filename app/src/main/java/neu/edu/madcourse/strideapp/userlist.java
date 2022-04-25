@@ -32,7 +32,10 @@ public class userlist extends AppCompatActivity {
         recylcerView = findViewById(R.id.userList);
         database = FirebaseDatabase.getInstance().getReference("Zach");
         recylcerView.setHasFixedSize(true);
-        recylcerView.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setReverseLayout(true);
+        linearLayoutManager.setStackFromEnd(true);
+        recylcerView.setLayoutManager(linearLayoutManager);
 
         list = new ArrayList<>();
         myAdapter = new MyAdapter(this, list);
@@ -53,11 +56,6 @@ public class userlist extends AppCompatActivity {
                         String TotalCalories = "TotalCalories";
                         FirebaseDatabase.getInstance().getReference().child(TotalCalories).setValue(totalCalories);
                         myAdapter.notifyDataSetChanged();
-
-
-
-
-
 
 
                     }
