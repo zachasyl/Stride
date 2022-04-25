@@ -9,7 +9,7 @@
 
     <include
         layout="@layout/constraint"
-        android:layout_width="330dp"
-        android:layout_height="105dp" />
+        android:layout_width="341dp"
+        android:layout_height="169dp" />
 
 </androidx.cardview.widget.CardView>
