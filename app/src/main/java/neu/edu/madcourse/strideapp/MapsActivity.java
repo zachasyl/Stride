@@ -28,6 +28,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.maps.android.SphericalUtil;
 
@@ -110,8 +111,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         }
 
                     }
-                        line = mMap.addPolyline(polylineOptions);
-                        routePoints.add(latLng);
+                    line = mMap.addPolyline(polylineOptions);
+                    routePoints.add(latLng);
 
                     // Geocoder class
                     Geocoder geocoder = new Geocoder(getApplicationContext());
@@ -193,23 +194,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         Toast.makeText(getBaseContext(), "Your answer is correct!", Toast.LENGTH_SHORT).show();
 
-        String id = "9000";
         String time = (String) simpleChronometer.getText();
         String theDistance = (String) distance.getText();
         Date currentDate = Calendar.getInstance().getTime();
         SimpleDateFormat df = new SimpleDateFormat("M/dd/yyyy", Locale.getDefault());
         String formattedDate = df.format(currentDate );
 
-
-
-
 //           String theTime = time.getText().toString();
 
-        FirebaseDatabase.getInstance().getReference().child(String.valueOf("Zach")).child(id).child("time").setValue(time);
-        FirebaseDatabase.getInstance().getReference().child(String.valueOf("Zach")).child(id).child("distance").setValue(theDistance);
-        FirebaseDatabase.getInstance().getReference().child(String.valueOf("Zach")).child(id).child("speed").setValue("1");
-        FirebaseDatabase.getInstance().getReference().child(String.valueOf("Zach")).child(id).child("date").setValue(formattedDate);
-        FirebaseDatabase.getInstance().getReference().child(String.valueOf("Zach")).child(id).child("calories").setValue("1");
+        DatabaseReference x = FirebaseDatabase.getInstance().getReference().child(String.valueOf("Zach")).push();
+        x.child("time").setValue(time);
+        x.child("distance").setValue(theDistance);
+        x.child("speed").setValue("1");
+        x.child("date").setValue(formattedDate);
+        x.child("calories").setValue("1");
+
+        //  FirebaseDatabase.getInstance().getReference().child(String.valueOf("Zach")).push().child("time").setValue(time);
+        //  FirebaseDatabase.getInstance().getReference().child(String.valueOf("Zach")).push().child("distance").setValue(theDistance);
+        // FirebaseDatabase.getInstance().getReference().child(String.valueOf("Zach")).push().child("speed").setValue("1");
+        // FirebaseDatabase.getInstance().getReference().child(String.valueOf("Zach")).push().child("date").setValue(formattedDate);
+        // FirebaseDatabase.getInstance().getReference().child(String.valueOf("Zach")).push().child("calories").setValue("1");
 
         Intent Return = new Intent(MapsActivity.this, userlist.class);
         startActivity(Return);
