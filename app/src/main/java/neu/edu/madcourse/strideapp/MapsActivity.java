@@ -32,8 +32,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.maps.android.SphericalUtil;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Calendar;
+import java.util.Locale;
 
 
 import neu.edu.madcourse.strideapp.databinding.ActivityMapsBinding;
@@ -192,15 +196,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         String id = "9000";
         String time = (String) simpleChronometer.getText();
         String theDistance = (String) distance.getText();
+        Date currentDate = Calendar.getInstance().getTime();
+        SimpleDateFormat df = new SimpleDateFormat("M/dd/yyyy", Locale.getDefault());
+        String formattedDate = df.format(currentDate );
+
+
+
 
 //           String theTime = time.getText().toString();
 
-
         FirebaseDatabase.getInstance().getReference().child(String.valueOf("Zach")).child(id).child("time").setValue(time);
         FirebaseDatabase.getInstance().getReference().child(String.valueOf("Zach")).child(id).child("distance").setValue(theDistance);
-
         FirebaseDatabase.getInstance().getReference().child(String.valueOf("Zach")).child(id).child("speed").setValue("1");
-        FirebaseDatabase.getInstance().getReference().child(String.valueOf("Zach")).child(id).child("date").setValue("1");
+        FirebaseDatabase.getInstance().getReference().child(String.valueOf("Zach")).child(id).child("date").setValue(formattedDate);
         FirebaseDatabase.getInstance().getReference().child(String.valueOf("Zach")).child(id).child("calories").setValue("1");
 
         Intent Return = new Intent(MapsActivity.this, userlist.class);
