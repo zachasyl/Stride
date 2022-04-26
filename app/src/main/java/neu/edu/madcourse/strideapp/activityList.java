@@ -17,7 +17,7 @@ import com.google.firebase.installations.FirebaseInstallations;
 
 import java.util.ArrayList;
 
-public class userlist extends AppCompatActivity {
+public class activityList extends AppCompatActivity {
     RecyclerView recylcerView;
     DatabaseReference database;
     MyAdapter myAdapter;
