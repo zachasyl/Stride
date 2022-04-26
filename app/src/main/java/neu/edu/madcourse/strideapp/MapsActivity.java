@@ -30,6 +30,7 @@ import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.installations.FirebaseInstallations;
 import com.google.maps.android.SphericalUtil;
 
 import java.io.IOException;
@@ -54,6 +55,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     // this line added
     LocationManager locationManager;
     private Polyline line;
+    private String firebaseIdentifier;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -202,20 +204,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 //           String theTime = time.getText().toString();
 
-        DatabaseReference x = FirebaseDatabase.getInstance().getReference().child(String.valueOf("Zach")).push();
+
+        FirebaseInstallations.getInstance().getId().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                 firebaseIdentifier = task.getResult();
+                // Do what you need with firebaseIdentifier
+
+
+        DatabaseReference x = FirebaseDatabase.getInstance().getReference().child(String.valueOf(firebaseIdentifier)).push();
         x.child("time").setValue(time);
         x.child("distance").setValue(theDistance);
         x.child("speed").setValue("1");
         x.child("date").setValue(formattedDate);
         x.child("calories").setValue("1");
+            }
+        });
 
-        //  FirebaseDatabase.getInstance().getReference().child(String.valueOf("Zach")).push().child("time").setValue(time);
-        //  FirebaseDatabase.getInstance().getReference().child(String.valueOf("Zach")).push().child("distance").setValue(theDistance);
-        // FirebaseDatabase.getInstance().getReference().child(String.valueOf("Zach")).push().child("speed").setValue("1");
-        // FirebaseDatabase.getInstance().getReference().child(String.valueOf("Zach")).push().child("date").setValue(formattedDate);
-        // FirebaseDatabase.getInstance().getReference().child(String.valueOf("Zach")).push().child("calories").setValue("1");
-
-        Intent Return = new Intent(MapsActivity.this, userlist.class);
+        Intent Return = new Intent(MapsActivity.this, activityList.class);
         startActivity(Return);
     }
 
