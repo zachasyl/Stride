@@ -45,7 +45,7 @@
         </intent-filter>
     </activity>
     <activity android:name=".Sprint"></activity>
-        <activity android:name=".userlist"></activity>
+        <activity android:name=".activityList"></activity>
         <activity android:name=".TrophyCase"></activity>
         <activity android:name=".MapsActivity"></activity>
 

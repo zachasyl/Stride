@@ -13,6 +13,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.installations.FirebaseInstallations;
 
 import java.util.ArrayList;
 
@@ -22,7 +23,7 @@ public class userlist extends AppCompatActivity {
     MyAdapter myAdapter;
     ArrayList<Exercise> list;
     int totalCalories;
-
+    String firebaseIdentifier;
     @Override
     protected void onCreate(Bundle savedInstanceState){
 
@@ -30,7 +31,13 @@ public class userlist extends AppCompatActivity {
         setContentView(R.layout.activity_userlist);
 
         recylcerView = findViewById(R.id.userList);
-        database = FirebaseDatabase.getInstance().getReference("Zach");
+        FirebaseInstallations.getInstance().getId().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                firebaseIdentifier = task.getResult();
+                // Do what you need with firebaseIdentifier
+
+
+        database = FirebaseDatabase.getInstance().getReference(firebaseIdentifier);
         recylcerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setReverseLayout(true);
@@ -71,7 +78,8 @@ public class userlist extends AppCompatActivity {
             }
         });
 
-
+            }
+        });
 
     }
 
