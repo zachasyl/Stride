@@ -1,6 +1,8 @@
 package neu.edu.madcourse.strideapp;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -22,7 +24,6 @@ public class activityList extends AppCompatActivity {
     DatabaseReference database;
     MyAdapter myAdapter;
     ArrayList<Exercise> list;
-    int totalCalories;
     String firebaseIdentifier;
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -37,7 +38,7 @@ public class activityList extends AppCompatActivity {
                 // Do what you need with firebaseIdentifier
 
 
-        database = FirebaseDatabase.getInstance().getReference(firebaseIdentifier);
+        database = FirebaseDatabase.getInstance().getReference(firebaseIdentifier).child("Activities");
         recylcerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setReverseLayout(true);
@@ -50,24 +51,25 @@ public class activityList extends AppCompatActivity {
 
         database.addValueEventListener(new ValueEventListener(){
             private ImageView mImageView;
-            @Override
 
+
+            @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Exercise exercise = dataSnapshot.getValue(Exercise.class);
                     list.add(exercise);
-
-                    if (exercise.getCalories() != null) {
-                        int x = Integer.parseInt(exercise.getCalories());
-                        totalCalories += x;
-                        String TotalCalories = "TotalCalories";
-                        FirebaseDatabase.getInstance().getReference().child(TotalCalories).setValue(totalCalories);
-                        myAdapter.notifyDataSetChanged();
-
-
-                    }
+                    myAdapter.notifyDataSetChanged();
+//                    if (exercise.getDistance() != null) {
+//                        int x = Integer.parseInt(exercise.getDistance());
+//                        totalDistance += x;
+//                        String TotalDistance = "TotalDistance";
+//                        FirebaseDatabase.getInstance().getReference().child(TotalDistance).setValue(totalDistance);
+//                        myAdapter.notifyDataSetChanged();
+//
+//
+//                    }
                 }
-                totalCalories = 0;
+//                totalDistance = 0;
 
             }
 
@@ -81,6 +83,38 @@ public class activityList extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void onClickManual(View v) {
+
+        Intent Sprint = new Intent(activityList.this, Sprint.class);
+        startActivity(Sprint);
+
+    }
+
+    public void onClickMyStats(View v) {
+        // go to the activity for displaying journeys
+        Intent MyStats = new Intent(activityList.this, Statistics.class);
+        startActivity(MyStats);
+    }
+
+
+    public void onClickView(View v) {
+        Intent myView = new Intent(activityList.this, activityList.class);
+        startActivity(myView);
+    }
+
+
+
+    public void onClickMyTrophies(View v) {
+        // go to the activity for displaying statistics
+        Intent MyTrophies = new Intent(activityList.this, neu.edu.madcourse.strideapp.TrophyCase.class);
+        startActivity(MyTrophies);
+    }
+
+    public void onClickRun(View v) {
+        Intent StartRun = new Intent(activityList.this, neu.edu.madcourse.strideapp.MapsActivity.class);
+        startActivity(StartRun);
     }
 
 }
