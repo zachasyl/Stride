@@ -15,20 +15,27 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void onClickSprint(View v) {
-        // go to the record journey activity
 
-        Intent Sprint = new Intent(MainActivity.this, activityList.class);
+
+
+
+    public void onClickManual(View v) {
+
+        Intent Sprint = new Intent(MainActivity.this, Sprint.class);
         startActivity(Sprint);
 
     }
 
-
-
-    public void onClickMySprints(View v) {
+    public void onClickMyStats(View v) {
         // go to the activity for displaying journeys
-        Intent MySprints = new Intent(MainActivity.this, Sprint.class);
-        startActivity(MySprints);
+        Intent MyStats = new Intent(MainActivity.this, Statistics.class);
+        startActivity(MyStats);
+    }
+
+    public void onClickView(View v) {
+        // go to the activity for displaying journeys
+        Intent myView = new Intent(MainActivity.this, activityList.class);
+        startActivity(myView);
     }
 
 
@@ -40,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickRun(View v) {
-        // go to the activity for displaying statistics
         Intent StartRun = new Intent(MainActivity.this, neu.edu.madcourse.strideapp.MapsActivity.class);
         startActivity(StartRun);
     }
