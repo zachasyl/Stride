@@ -37,17 +37,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView date, distance, time, calories, speed;
+        TextView activity, date, distance, time, speed;
 
         public MyViewHolder(@NonNull View itemView){
             super(itemView);
 /*
             id = itemView.findViewById(R.id.IDentry);
 */
+            activity = itemView.findViewById(R.id.activity);
             date = itemView.findViewById(R.id.date);
             distance = itemView.findViewById(R.id.distance);
             time = itemView.findViewById(R.id.time);
-            calories = itemView.findViewById(R.id.calories);
             speed = itemView.findViewById(R.id.speed);
 
         }
@@ -60,7 +60,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 /*
         holder.id.setText(user.getId());
 */
-        holder.calories.setText(exercise.getCalories());
+        holder.activity.setText(exercise.getActivity());
         holder.date.setText(exercise.getDate());
         holder.distance.setText(exercise.getDistance());
         holder.speed.setText(exercise.getSpeed());
