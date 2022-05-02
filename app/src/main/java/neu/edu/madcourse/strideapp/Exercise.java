@@ -2,15 +2,19 @@ package neu.edu.madcourse.strideapp;
 
 public class Exercise {
 
-    String id, date, distance, time, speed, calories;
-
-    int totalCalories;
-
+    // It is strange that these are all string and leads to complications in the stop method of MapsActivity.
+    // However, the adapter requires them to be strings for display settext
+    // Maybe I can concatenate and convert to string here (ie, add MPH) instead, although still would return stirng. or in the adapter?
+    String  activity, date, time, speed, distance, TotalDistance;
 /*
     public String getId() {
         return id;
     }
 */
+
+    public String getActivity() {
+        return activity;
+    }
 
     public String getDate() {
         return date;
@@ -20,19 +24,14 @@ public class Exercise {
         return distance;
     }
 
+    public String getTotalDistance() {
+        return TotalDistance;
+    }
+
     public String getTime() {
         return time;
     }
 
-    public String getCalories() {
-
-        return calories;
-    }
-
-    public int totalCalories() {
-
-        return totalCalories;
-    }
 
     public String getSpeed() {
         return speed;
