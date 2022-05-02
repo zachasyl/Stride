@@ -6,17 +6,20 @@
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_card.xml" value="0.14855072463768115" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.17695770263671876" />
-        <entry key="app/src/main/res/layout/activity_maps.xml" value="0.375067138671875" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2519851684570314" />
+        <entry key="app/src/main/res/layout/activity_maps.xml" value="0.2611123335988898" />
         <entry key="app/src/main/res/layout/activity_mysprints.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_mystatistics.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_sprint.xml" value="0.2627105712890625" />
-        <entry key="app/src/main/res/layout/activity_userlist.xml" value="0.1105072463768116" />
+        <entry key="app/src/main/res/layout/activity_sprint.xml" value="0.27813568115234377" />
+        <entry key="app/src/main/res/layout/activity_statistics.xml" value="0.2011444091796875" />
+        <entry key="app/src/main/res/layout/activity_userlist.xml" value="0.20334320068359377" />
         <entry key="app/src/main/res/layout/constraint.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/item.xml" value="0.3752808988764045" />
+        <entry key="app/src/main/res/layout/item.xml" value="0.12638549804687502" />
         <entry key="app/src/main/res/layout/item_card.xml" value="0.21891937255859378" />
         <entry key="app/src/main/res/layout/layout_dialog.xml" value="0.11398176291793313" />
-        <entry key="app/src/main/res/layout/trophies.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/testogn.xml" value="0.13949275362318841" />
+        <entry key="app/src/main/res/layout/trophies.xml" value="0.2364425659179688" />
+        <entry key="app/src/main/res/layout/ui.xml" value="0.24072265625000003" />
       </map>
     </option>
   </component>
