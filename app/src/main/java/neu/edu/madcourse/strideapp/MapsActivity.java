@@ -135,8 +135,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         private void fetchLocation() {
             locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(MapsActivity.this,
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                    != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission
+                    (this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                         ActivityCompat.requestPermissions(MapsActivity.this,
                         new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                         MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
                 return; //onRequestPermissionResult would be called and then it wil cal fetchlocaiton agan.
@@ -149,7 +151,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 // using GPS is the only viable option since we are constantly drawing a line.
                 if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5, 5, new LocationListener() {
+                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5,
+                            5, new LocationListener() {
                         @Override
                         public void onLocationChanged(@NonNull Location location) {
                             double latitude = location.getLatitude();
@@ -172,7 +175,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 //
                                     TextView textView = (TextView) findViewById(R.id.distanceText1);
-                                    distanceMeters = distanceMeters + SphericalUtil.computeDistanceBetween(startLatLng, endLatLng);
+                                    distanceMeters =
+                                    distanceMeters +
+                                            SphericalUtil.computeDistanceBetween(startLatLng, endLatLng);
 
                                     double distanceDouble =  Double.valueOf(distanceMeters);
                                     mileDistance = distanceDouble / 1609.344;
@@ -233,7 +238,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
 
-        //date
+
         Date currentDate = Calendar.getInstance().getTime();
         SimpleDateFormat df = new SimpleDateFormat("M/dd/yyyy", Locale.getDefault());
         String formattedDate = df.format(currentDate );
@@ -241,8 +246,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         FirebaseInstallations.getInstance().getId().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                  firebaseIdentifier = task.getResult();
-                // Do what you need with firebaseIdentifier
-        DatabaseReference x = FirebaseDatabase.getInstance().getReference().child(String.valueOf(firebaseIdentifier)).child("Activities").push();
+                DatabaseReference x =
+                        FirebaseDatabase.getInstance().getReference().child(
+                                String.valueOf(firebaseIdentifier)).child("Activities").push();
+
+
+
+
                 // convert meters to miles
 
         //distance

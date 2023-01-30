@@ -1,33 +1,34 @@
 {
   "project_info": {
-    "project_number": "152313028392",
-    "project_id": "strideapp-c8302",
-    "storage_bucket": "strideapp-c8302.appspot.com"
+    "project_number": "135800835533",
+    "firebase_url": "https://stride-ee61d-default-rtdb.firebaseio.com",
+    "project_id": "stride-ee61d",
+    "storage_bucket": "stride-ee61d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:152313028392:android:27a7e8c8acded9fad07a1d",
+        "mobilesdk_app_id": "1:135800835533:android:508b1dd801cfd68acc4884",
         "android_client_info": {
           "package_name": "neu.edu.madcourse.strideapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "152313028392-k8p9pdkp4krv82mek5k9414ess95f4s1.apps.googleusercontent.com",
+          "client_id": "135800835533-3rks4drnceug5tn6bum26fq4lkk0fvia.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBl7xqcP6ASkbMLO4nqsqoH9OQru3XM_o4"
+          "current_key": "AIzaSyCaeSiLU5ALlaZLEJ5w5LY-EnLQGL9ae5Y"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "152313028392-k8p9pdkp4krv82mek5k9414ess95f4s1.apps.googleusercontent.com",
+              "client_id": "135800835533-3rks4drnceug5tn6bum26fq4lkk0fvia.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
